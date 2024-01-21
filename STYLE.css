@@ -1,0 +1,54 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+.center {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.font {
+  text-align: center;
+  font-family: "BankGothic Md BT";
+}
+
+.color {
+  color: dark brown;
+}
+
+.b_size {
+  font-size: 70px;
+}
+
+.t_size {
+  font-size: 40px;
+}
+
+.s_size {
+  font-size: 25px;
+}
+
+.space {
+  position: absolute;
+  right: 50px;
+  width: 700px;
+  border: 6px solid black;
+  margin: 50px;
+}
+
+a:link {
+  color: 	#383838;
+  text-decoration: none;
+}
+
+a:visited {
+  color:	#000000;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #000000;
+  text-decoration: none;
+}
