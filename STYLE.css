@@ -3,15 +3,30 @@ html {
   width: 100%;
 }
 
+body{
+  background-image: url(../MARENCOSITOPCTO/IMMAGINI/sfondo_def.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
 .center {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
 }
 
-.font {
+.font_cent { /*FONT*/
   text-align: center;
   font-family: "BankGothic Md BT";
+}
+
+.font_left { /*FONT*/
+  text-align: justify;
+  text-justify: inter-word;
+  font-family: "BankGothic Md BT";
+  margin: 35px;
 }
 
 .color {
@@ -30,14 +45,6 @@ html {
   font-size: 25px;
 }
 
-.space {
-  position: absolute;
-  right: 50px;
-  width: 700px;
-  border: 6px solid black;
-  margin: 50px;
-}
-
 a:link {
   color: 	#383838;
   text-decoration: none;
@@ -51,4 +58,74 @@ a:visited {
 a:hover {
   color: #000000;
   text-decoration: none;
+}
+
+.left {
+  text-align: left;
+  max-width: 100%;
+}
+
+.img {
+  float: right;
+  max-width: 40%;
+  max-height: 400px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: black;
+  margin-left: 20px;
+}
+
+.img_hor {
+  float: right;
+  max-width: 40%;
+  max-height: 378px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: black;
+  margin-left: 35px;
+}
+
+.img_str {
+  float: right;
+  max-width: 20%;
+  max-height: 378px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: black;
+  margin: 35px;
+}
+
+.img_me {
+  float: left;
+  max-width: 20%;
+  max-height: 378px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: black;
+  margin-right: 35px;
+}
+
+.img_pol {
+  float: right;
+  max-width: 20%;
+  max-height: 100px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: black;
+  margin-left: 35px;
+}
+
+.img_sci {
+  float: right;
+  max-width: 40%;
+  max-height: 400px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: black;
+  margin-left: 35px;
+  margin-bottom: 20px;
+}
+
+.foot {
+clear: both;
 }
