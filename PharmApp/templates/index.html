@@ -3,24 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>PharmApp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body { font-family: Arial; padding: 20px; }
-        h1 { color: #333; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+        body { font-family: Arial; padding: 10px; margin: 0; }
+        h1 { color: #333; text-align: center; }
+        form { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; margin-bottom: 15px; }
+        form input, form select, form button { padding: 10px; font-size: 1em; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; font-size: 0.9em; }
         th { background-color: #f2f2f2; }
         .green { color: green; font-weight: bold; }
         .yellow { color: orange; font-weight: bold; }
         .red { color: red; font-weight: bold; }
-        a { margin-right: 10px; text-decoration: none; color: blue; }
-        form input, form select { padding: 5px; margin-right: 10px; }
-        form button { padding: 5px 10px; }
+        a { margin-right: 5px; text-decoration: none; color: blue; font-size: 0.9em; }
+        @media (max-width: 600px) {
+            table, thead, tbody, th, td, tr { display: block; }
+            th { display: none; }
+            td { position: relative; padding-left: 50%; margin-bottom: 10px; }
+            td::before { 
+                position: absolute;
+                left: 10px;
+                top: 8px;
+                content: attr(data-label);
+                font-weight: bold;
+            }
+        }
     </style>
 </head>
 <body>
     <h1>PharmApp 💊</h1>
 
-    <h2>Aggiungi Medicinale</h2>
     <form action="/add" method="post">
         <input type="text" name="name" placeholder="Nome" required>
         <input type="text" name="type" placeholder="Tipologia/Scopo">
@@ -33,8 +45,8 @@
         <button type="submit">Aggiungi</button>
     </form>
 
-    <h2>Medicinali in Casa</h2>
     <table>
+        <thead>
         <tr>
             <th>Nome</th>
             <th>Tipologia/Scopo</th>
@@ -42,18 +54,21 @@
             <th>Scadenza</th>
             <th>Azioni</th>
         </tr>
+        </thead>
+        <tbody>
         {% for med in medicines %}
         <tr>
-            <td>{{ med[1] }}</td>
-            <td>{{ med[2] }}</td>
-            <td><span class="{{ med[3] }}">●</span></td>
-            <td>{{ med[4] }}</td>
-            <td>
+            <td data-label="Nome">{{ med[1] }}</td>
+            <td data-label="Tipologia/Scopo">{{ med[2] }}</td>
+            <td data-label="Disponibilità"><span class="{{ med[3] }}">●</span></td>
+            <td data-label="Scadenza">{{ med[4] }}</td>
+            <td data-label="Azioni">
                 <a href="/edit/{{ med[0] }}">Modifica</a>
                 <a href="/delete/{{ med[0] }}">Elimina</a>
             </td>
         </tr>
         {% endfor %}
+        </tbody>
     </table>
 </body>
 </html>
