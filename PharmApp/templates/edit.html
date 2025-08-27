@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Modifica Medicinale</title>
+</head>
+<body>
+    <h1>Modifica Medicinale</h1>
+    <form action="" method="post">
+        <input type="text" name="name" value="{{ medicine[1] }}" required>
+        <input type="text" name="type" value="{{ medicine[2] }}">
+        <select name="availability" required>
+            <option value="green" {% if medicine[3]=="green" %}selected{% endif %}>Disponibile</option>
+            <option value="yellow" {% if medicine[3]=="yellow" %}selected{% endif %}>Quasi finito</option>
+            <option value="red" {% if medicine[3]=="red" %}selected{% endif %}>Esaurito</option>
+        </select>
+        <input type="date" name="expiry" value="{{ medicine[4] }}" required>
+        <button type="submit">Salva Modifiche</button>
+    </form>
+    <a href="/">← Torna alla lista</a>
+</body>
+</html>

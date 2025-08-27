@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>PharmApp</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        h1 { color: #333; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .green { color: green; font-weight: bold; }
+        .yellow { color: orange; font-weight: bold; }
+        .red { color: red; font-weight: bold; }
+        a { margin-right: 10px; text-decoration: none; color: blue; }
+        form input, form select { padding: 5px; margin-right: 10px; }
+        form button { padding: 5px 10px; }
+    </style>
+</head>
+<body>
+    <h1>PharmApp 💊</h1>
+
+    <h2>Aggiungi Medicinale</h2>
+    <form action="/add" method="post">
+        <input type="text" name="name" placeholder="Nome" required>
+        <input type="text" name="type" placeholder="Tipologia/Scopo">
+        <select name="availability" required>
+            <option value="green">Disponibile</option>
+            <option value="yellow">Quasi finito</option>
+            <option value="red">Esaurito</option>
+        </select>
+        <input type="date" name="expiry" required>
+        <button type="submit">Aggiungi</button>
+    </form>
+
+    <h2>Medicinali in Casa</h2>
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Tipologia/Scopo</th>
+            <th>Disponibilità</th>
+            <th>Scadenza</th>
+            <th>Azioni</th>
+        </tr>
+        {% for med in medicines %}
+        <tr>
+            <td>{{ med[1] }}</td>
+            <td>{{ med[2] }}</td>
+            <td><span class="{{ med[3] }}">●</span></td>
+            <td>{{ med[4] }}</td>
+            <td>
+                <a href="/edit/{{ med[0] }}">Modifica</a>
+                <a href="/delete/{{ med[0] }}">Elimina</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
