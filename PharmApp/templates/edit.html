@@ -3,12 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Modifica Medicinale</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: Arial; padding: 10px; margin: 0; }
+        h1 { text-align: center; color: #333; }
+        form { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; }
+        input, select, button { padding: 10px; font-size: 1em; }
+        button { margin-top: 10px; }
+        a { display: block; text-align: center; margin-top: 15px; color: blue; text-decoration: none; }
+    </style>
 </head>
 <body>
     <h1>Modifica Medicinale</h1>
     <form action="" method="post">
-        <input type="text" name="name" value="{{ medicine[1] }}" required>
-        <input type="text" name="type" value="{{ medicine[2] }}">
+        <input type="text" name="name" value="{{ medicine[1] }}" placeholder="Nome" required>
+        <input type="text" name="type" value="{{ medicine[2] }}" placeholder="Tipologia/Scopo">
         <select name="availability" required>
             <option value="green" {% if medicine[3]=="green" %}selected{% endif %}>Disponibile</option>
             <option value="yellow" {% if medicine[3]=="yellow" %}selected{% endif %}>Quasi finito</option>
